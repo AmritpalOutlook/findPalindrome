@@ -16,31 +16,30 @@ public class FindPalindrome {
 	}
 
 	// This is used for concatenation of different input combinations
-	private static void concat(long leftHalf) {
+	private static void concatLeftRightSubstring(long leftHalf) {
 		String s = "" + leftHalf, rs = new StringBuilder(s).reverse().toString();
 		update(s + rs);
 		update(s + rs.substring(1));
 	}
 
-	public static String nearestPalindromic(String n) {
+	public static String findNearestPalindromic(String n) {
 		try {
-		num = Long.parseLong(n);
-		difference = Long.MAX_VALUE;
-		long leftHalf = Long.parseLong(n.substring(0, (n.length() + 1) / 2));
-		concat(leftHalf - 1);
-		concat((leftHalf - 1) * 10 + 9);
-		concat(leftHalf);
-		concat(leftHalf + 1);
-		concat((leftHalf + 1) / 10);
-		return "" + result;
+			num = Long.parseLong(n);
+			difference = Long.MAX_VALUE;
+			long leftHalf = Long.parseLong(n.substring(0, (n.length() + 1) / 2));
+			concatLeftRightSubstring(leftHalf - 1);
+			concatLeftRightSubstring((leftHalf - 1) * 10 + 9);
+			concatLeftRightSubstring(leftHalf);
+			concatLeftRightSubstring(leftHalf + 1);
+			concatLeftRightSubstring((leftHalf + 1) / 10);
+			return "" + result;
+		} catch (Exception e) {
+			throw e;
 		}
-	 catch (Exception e) {
-		 throw e;
-	}
 	}
 
 	public static void main(String[] args) {
-		String pl = nearestPalindromic("117");
+		String pl = findNearestPalindromic("117");
 		System.out.println(pl);
 
 	}
